@@ -1,0 +1,11 @@
+@BaseUrlUsers = http://localhost:3080/api/v1/users
+
+POST {{BaseUrlUsers}}/signup
+Content-Type: application/json
+
+{
+    "user_name": "user_test1",
+    "password": "123456789",
+    "bio": "I like coding in go",
+    "email": "teste_user@email.com"
+}
