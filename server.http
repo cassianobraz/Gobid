@@ -4,8 +4,20 @@ POST {{BaseUrlUsers}}/signup
 Content-Type: application/json
 
 {
-    "user_name": "user_test1",
-    "password": "123456789",
-    "bio": "I like coding in go",
-    "email": "teste_user@email.com"
+    "user_name": "name",
+    "password": "password",
+    "bio": "text",
+    "email": "emailValid@gmail.com"
+}
+
+###
+POST {{BaseUrlUsers}}/logout
+
+###
+POST {{BaseUrlUsers}}/login
+Content-Type: application/json
+
+{
+    "password": "password",
+    "email": "emailValid@gmail.com"
 }
