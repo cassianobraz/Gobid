@@ -1,29 +1,43 @@
 @BaseUrl = http://localhost:3080/api/v1
 @BaseUrlUsers = http://localhost:3080/api/v1/users
+@email = emailValid@gmail.com
+@password = password
+@auctionEnd = 2027-01-01T00:00:00Z
 
+### Create new user
 POST {{BaseUrlUsers}}/signup
 Content-Type: application/json
-X-CSRF-Token: GiCPTTYmqH3rCi0APGKv1FF0wcdCY701VGqiPlNPqb56d2I0PTR1MstjGStLDpkRQwt0OxC9k0GaogngpLM+5Q==
 
 {
     "user_name": "name",
-    "password": "password",
-    "bio": "text",
-    "email": "emailValid@gmail.com"
+    "password": "{{password}}",
+    "bio": "text nome muito curto",
+    "email": "{{email}}"
 }
 
-###
-POST {{BaseUrlUsers}}/logout
-
-###
+### Login
 POST {{BaseUrlUsers}}/login
 Content-Type: application/json
-X-CSRF-Token: 7gFPijPXrWroaB1+8MqdKsmrwL9sePvLvTW7TxpCOUWOVqLzOMVwJcgBKVWHpqvv29R1Qz6m1b9z/RCR7b6uHg==
 
 {
-    "password": "password",
-    "email": "emailValid@gmail.com"
+    "password": "{{password}}",
+    "email": "{{email}}"
 }
 
-###
+### Create new product
+# Run Login before this request so the session cookie is available.
+POST {{BaseUrl}}/products/
+Content-Type: application/json
+
+{
+    "product_name": "Sample Product",
+    "description": "This is a sample product description.",
+    "baseprice": 99.99,
+    "auction_end": "{{auctionEnd}}"
+}
+
+### Logout
+POST {{BaseUrlUsers}}/logout
+
+### Pegar token CSRF
 GET {{BaseUrl}}/csrftoken

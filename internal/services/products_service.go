@@ -29,5 +29,16 @@ func (ps *ProductService) CreateProduct(
 	baseprice float64,
 	auctionEnd time.Time,
 ) (uuid.UUID, error) {
+	id, err := ps.queries.CreateProduct(ctx, pgstore.CreateProductParams{
+		SellerID:    selleId,
+		ProductName: productName,
+		Description: description,
+		Baseprice:   baseprice,
+		AuctionEnd:  auctionEnd,
+	})
 
+	if err != nil {
+		return uuid.UUID{}, err
+	}
+	return id, nil
 }

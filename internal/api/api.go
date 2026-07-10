@@ -7,9 +7,8 @@ import (
 )
 
 type Api struct {
-	Router      *chi.Mux
-	UserService services.UserService
-	Sessions    *scs.SessionManager
+	Router         *chi.Mux
+	UserService    services.UserService
+	ProductService services.ProductService
+	Sessions       *scs.SessionManager
 }
-
-// func (api *Api) handleCreateUser(w http.ResponseWriter, r *http.Request) {}
