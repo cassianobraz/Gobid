@@ -1,7 +1,9 @@
+@BaseUrl = http://localhost:3080/api/v1
 @BaseUrlUsers = http://localhost:3080/api/v1/users
 
 POST {{BaseUrlUsers}}/signup
 Content-Type: application/json
+X-CSRF-Token: GiCPTTYmqH3rCi0APGKv1FF0wcdCY701VGqiPlNPqb56d2I0PTR1MstjGStLDpkRQwt0OxC9k0GaogngpLM+5Q==
 
 {
     "user_name": "name",
@@ -16,8 +18,12 @@ POST {{BaseUrlUsers}}/logout
 ###
 POST {{BaseUrlUsers}}/login
 Content-Type: application/json
+X-CSRF-Token: 7gFPijPXrWroaB1+8MqdKsmrwL9sePvLvTW7TxpCOUWOVqLzOMVwJcgBKVWHpqvv29R1Qz6m1b9z/RCR7b6uHg==
 
 {
     "password": "password",
     "email": "emailValid@gmail.com"
 }
+
+###
+GET {{BaseUrl}}/csrftoken
