@@ -41,3 +41,7 @@ POST {{BaseUrlUsers}}/logout
 
 ### Pegar token CSRF
 GET {{BaseUrl}}/csrftoken
+
+
+###
+WEBSOCKET ws://localhost:3080/api/v1/products/ws/subscribe/0d7abb9a-e5d8-4cde-9608-385761742b92
